@@ -1,0 +1,185 @@
+/* ─── Responsive Breakpoints ──────────────────────────────
+   Desktop: 1280px+ (primary)
+   Laptop:  1024px–1279px
+   Tablet:  768px–1023px
+   Mobile:  <768px
+─────────────────────────────────────────────────────────── */
+
+/* ─── Shell sidebars: hide on tablet/mobile ─── */
+@media (max-width: 1023px) {
+  .shell-sidebar {
+    display: none !important;
+  }
+  .shell-main {
+    height: calc(100vh - 56px - 60px) !important; /* account for bottom nav */
+  }
+  .shell-bottom-nav {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .shell-bottom-nav {
+    display: none !important;
+  }
+}
+
+/* ─── Grid responsiveness ─── */
+@media (max-width: 1023px) {
+  .responsive-grid-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .responsive-grid-3 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .responsive-grid-2-1 {
+    grid-template-columns: 1fr !important;
+  }
+  .responsive-split {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .responsive-grid-4 {
+    grid-template-columns: 1fr !important;
+  }
+  .responsive-grid-3 {
+    grid-template-columns: 1fr !important;
+  }
+  .responsive-grid-2 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ─── Padding adjustments ─── */
+@media (max-width: 1023px) {
+  .page-content {
+    padding: 20px 16px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .page-content {
+    padding: 16px 12px !important;
+  }
+}
+
+/* ─── Typography scaling ─── */
+@media (max-width: 767px) {
+  .hero-title {
+    font-size: 20px !important;
+  }
+  .section-title {
+    font-size: 15px !important;
+  }
+}
+
+/* ─── Landing page ─── */
+@media (max-width: 767px) {
+  .landing-cards {
+    gap: 12px !important;
+  }
+  .landing-cards > button {
+    width: 160px !important;
+    height: 200px !important;
+  }
+}
+
+/* ─── KPI strip ─── */
+@media (max-width: 1023px) {
+  .kpi-strip {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .kpi-strip {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ─── Feature panels (trajectory + radar) ─── */
+@media (max-width: 1023px) {
+  .feature-panels {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ─── Operational strip ─── */
+@media (max-width: 767px) {
+  .operational-strip {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ─── Intelligence360 tiles ─── */
+@media (max-width: 767px) {
+  .intel-tiles {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ─── Holistic profile sections ─── */
+@media (max-width: 1023px) {
+  .holistic-two-col {
+    grid-template-columns: 1fr !important;
+  }
+  .holistic-learning-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ─── Lesson view key terms sidebar ─── */
+@media (max-width: 1023px) {
+  .lesson-sidebar {
+    display: none !important;
+  }
+}
+
+/* ─── Teacher dashboard columns ─── */
+@media (max-width: 1023px) {
+  .teacher-two-col {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ─── Table horizontal scroll on mobile ─── */
+@media (max-width: 767px) {
+  .responsive-table-wrap {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  .responsive-table-wrap table {
+    min-width: 600px;
+  }
+}
+
+/* ─── Recommendation cards ─── */
+@media (max-width: 767px) {
+  .rec-cards {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ─── Quick actions ─── */
+@media (max-width: 767px) {
+  .quick-actions {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* ─── Top nav portal label: hide on mobile ─── */
+@media (max-width: 767px) {
+  .portal-label {
+    display: none !important;
+  }
+}
+
+/* ─── Radar chart container scaling ─── */
+@media (max-width: 767px) {
+  .radar-container {
+    max-width: 320px !important;
+    margin: 0 auto;
+  }
+}

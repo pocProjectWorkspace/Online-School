@@ -1,0 +1,123 @@
+/* ─── Shared avatar state animations ─── */
+
+/* Idle — breathing */
+.avatar-idle {
+  animation: avatarBreathe 3s ease-in-out infinite;
+}
+
+@keyframes avatarBreathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+/* ─── Mouth toggle (speaking) ─── */
+/* Default: closed mouth visible, open mouth hidden */
+.avatar-mouth-closed { opacity: 1; }
+.avatar-mouth-open   { opacity: 0; }
+
+/* Speaking: alternate mouth open/close at ~8 cycles/sec */
+.avatar-speaking .avatar-mouth-closed {
+  animation: mouthToggleOff 0.125s step-end infinite;
+}
+.avatar-speaking .avatar-mouth-open {
+  animation: mouthToggleOn 0.125s step-end infinite;
+}
+
+@keyframes mouthToggleOn {
+  0%   { opacity: 1; }
+  50%  { opacity: 0; }
+}
+@keyframes mouthToggleOff {
+  0%   { opacity: 0; }
+  50%  { opacity: 1; }
+}
+
+/* Speaking — stop breathing, keep still */
+.avatar-speaking {
+  animation: none;
+}
+
+/* ─── Listening ─── */
+.avatar-listening {
+  animation: none;
+}
+
+.avatar-listening .avatar-eyebrows {
+  transform: translateY(-2px);
+  transition: transform 300ms ease;
+}
+
+/* ─── Thinking ─── */
+.avatar-thinking {
+  animation: none;
+}
+
+/* Pupils look up-left */
+.avatar-thinking .avatar-pupil-l {
+  transform: translate(-2px, -3px);
+  transition: transform 300ms ease;
+}
+.avatar-thinking .avatar-pupil-r {
+  transform: translate(-2px, -3px);
+  transition: transform 300ms ease;
+}
+
+/* Show thinking dots */
+.avatar-thinking-dots {
+  opacity: 0;
+}
+.avatar-thinking .avatar-thinking-dots {
+  opacity: 1;
+  animation: thinkingDots 1.2s ease-in-out infinite;
+}
+
+@keyframes thinkingDots {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* Individual dot stagger */
+.avatar-thinking .avatar-thinking-dots circle:nth-child(1) { animation: dotBounce 1s ease-in-out 0ms infinite; }
+.avatar-thinking .avatar-thinking-dots circle:nth-child(2) { animation: dotBounce 1s ease-in-out 200ms infinite; }
+.avatar-thinking .avatar-thinking-dots circle:nth-child(3) { animation: dotBounce 1s ease-in-out 400ms infinite; }
+
+@keyframes dotBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.4; }
+  50% { transform: translateY(-4px); opacity: 1; }
+}
+
+/* ─── Happy ─── */
+.avatar-happy {
+  animation: none;
+}
+
+/* Luna happy: eyes squint */
+.avatar-luna.avatar-happy .avatar-eyes ellipse {
+  ry: 6px;
+  transition: ry 300ms ease;
+}
+
+/* Alex happy: eyes narrow */
+.avatar-alex.avatar-happy .avatar-eyes rect {
+  height: 5px;
+  transition: height 300ms ease;
+}
+
+/* Happy mouth — show a wider smile */
+.avatar-happy .avatar-mouth-closed {
+  opacity: 1;
+  transform: scaleY(1.2) translateY(-2px);
+  transition: transform 300ms ease;
+}
+.avatar-happy .avatar-mouth-open { opacity: 0; }
+
+/* ─── Encouraging ─── */
+.avatar-encouraging {
+  animation: avatarNod 0.6s ease-in-out;
+}
+
+@keyframes avatarNod {
+  0%, 100% { transform: rotate(0deg); }
+  30% { transform: rotate(3deg); }
+  60% { transform: rotate(-1deg); }
+}
