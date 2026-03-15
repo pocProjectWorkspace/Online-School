@@ -1,7 +1,7 @@
 import { Outlet, useNavigate, useLocation } from 'react-router-dom'
 import {
   Home, BookOpen, Video, ClipboardList, Brain, BarChart3, Trophy,
-  Bell, Gem, MessageSquare, Calendar, Flame,
+  Bell, Gem, MessageSquare, Calendar, Flame, LayoutGrid, Smile,
 } from 'lucide-react'
 import { useApp } from '../../context/AppContext'
 import { useTheme } from '../../context/ThemeContext'
@@ -19,10 +19,12 @@ const y3Nav = [
 
 const y9Nav = [
   { icon: Home, label: 'Dashboard', path: '/student/y9' },
+  { icon: LayoutGrid, label: 'Microsoft 365', path: '/student/y9/microsoft365', badge: { text: 'M365', bg: 'rgba(98,100,167,0.15)', color: '#6264A7' } },
   { icon: BookOpen, label: 'Lessons', path: '/student/y9' },
   { icon: Video, label: 'Join Class', path: '/student/y9', badge: { text: 'Live', bg: 'rgba(255,71,87,0.15)', color: 'var(--accent-red)', pulse: true } },
   { icon: Brain, label: 'My Profile', path: '/student/y9/intelligence' },
-  { icon: ClipboardList, label: 'Assignments', path: '/student/y9', badge: { text: '3', bg: 'rgba(255,184,0,0.15)', color: 'var(--accent-amber)' } },
+  { icon: ClipboardList, label: 'Assignments', path: '/student/y9/assignments', badge: { text: '3', bg: 'rgba(255,184,0,0.15)', color: 'var(--accent-amber)' } },
+  { icon: Smile, label: 'Reflect', path: '/student/y9/reflect', badge: { text: 'New', bg: 'rgba(0,229,160,0.15)', color: 'var(--accent-green)' } },
   { icon: BarChart3, label: 'Progress', path: '/student/y9' },
   { icon: Calendar, label: 'Timetable', path: '/student/y9' },
   { icon: MessageSquare, label: 'Messages', path: '/student/y9' },
@@ -37,9 +39,9 @@ const y3MobileNav = [
 
 const y9MobileNav = [
   { icon: Home, label: 'Home', path: '/student/y9' },
-  { icon: BookOpen, label: 'Lessons', path: '/student/y9' },
+  { icon: LayoutGrid, label: 'M365', path: '/student/y9/microsoft365' },
   { icon: Brain, label: 'Profile', path: '/student/y9/intelligence' },
-  { icon: BarChart3, label: 'Progress', path: '/student/y9' },
+  { icon: ClipboardList, label: 'Tasks', path: '/student/y9/assignments' },
 ]
 
 function StudentSidebar({ variant }) {
@@ -93,7 +95,8 @@ function StudentSidebar({ variant }) {
       <nav style={{ flex: 1, padding: '8px 0', overflowY: 'auto' }}>
         {navItems.map(item => {
           const Icon = item.icon
-          const isActive = location.pathname === item.path && item.label === (isY3 ? 'My Learning' : 'Dashboard')
+          const isActive = location.pathname === item.path ||
+            (item.path !== '/student/y3' && item.path !== '/student/y9' && location.pathname.startsWith(item.path))
           return (
             <button key={item.label} onClick={() => navigate(item.path)} style={{
               width: '100%', display: 'flex', alignItems: 'center', gap: 12, padding: '10px 16px',

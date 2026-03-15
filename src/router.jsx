@@ -5,6 +5,11 @@ import Y3Dashboard from './pages/student/Y3Dashboard'
 import Y3Lesson from './pages/student/Y3Lesson'
 import Y9Dashboard from './pages/student/Y9Dashboard'
 import Y9Intelligence from './pages/student/Y9Intelligence'
+import Y9Microsoft365 from './pages/student/Y9Microsoft365'
+import Y9ReadingCoach from './pages/student/Y9ReadingCoach'
+import Y9SpeakerCoach from './pages/student/Y9SpeakerCoach'
+import Y9Reflect from './pages/student/Y9Reflect'
+import Y9Assignments from './pages/student/Y9Assignments'
 import Y9Lesson from './pages/student/Y9Lesson'
 import TeacherShell from './components/teacher/TeacherShell'
 import TeacherDashboard from './pages/teacher/TeacherDashboard'
@@ -37,6 +42,11 @@ export const router = createBrowserRouter([
     children: [
       { path: '/student/y9', element: <Y9Dashboard /> },
       { path: '/student/y9/intelligence', element: <Y9Intelligence /> },
+      { path: '/student/y9/microsoft365', element: <Y9Microsoft365 /> },
+      { path: '/student/y9/reading-coach', element: <Y9ReadingCoach /> },
+      { path: '/student/y9/speaker-coach', element: <Y9SpeakerCoach /> },
+      { path: '/student/y9/reflect', element: <Y9Reflect /> },
+      { path: '/student/y9/assignments', element: <Y9Assignments /> },
     ],
   },
   // Y9 Lesson stays standalone (full-screen with its own key terms sidebar)
