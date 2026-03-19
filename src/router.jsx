@@ -1,4 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom'
+import MarketingLanding from './pages/MarketingLanding'
+import Login from './pages/Login'
 import Landing from './pages/Landing'
 import StudentShell from './components/student/StudentShell'
 import Y3Dashboard from './pages/student/Y3Dashboard'
@@ -28,7 +30,9 @@ import Parent360Survey from './pages/parent/Parent360Survey'
 import Parent360Results from './pages/parent/Parent360Results'
 
 export const router = createBrowserRouter([
-  { path: '/', element: <Landing /> },
+  { path: '/', element: <MarketingLanding /> },
+  { path: '/login', element: <Login /> },
+  { path: '/select-persona', element: <Landing /> },
   {
     element: <StudentShell variant="y3" />,
     children: [
